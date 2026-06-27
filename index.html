@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venezuela Aid Hub | Terremoto 2026 - Help Now</title>
+    <title>Venezuela Aid Hub | Terremotos 2026 - Help Now</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -26,6 +26,7 @@
 
         .vz-yellow { color: #FFCC00; }
         .vz-blue { color: #003087; }
+        .vz-blue:hover { color: #001a55; }
         .vz-red { color: #C8102E; }
         
         .bg-vz-yellow { background-color: #FFCC00; }
@@ -39,32 +40,14 @@
             background: linear-gradient(135deg, #003087 0%, #002266 100%);
         }
 
-        .urgent-pulse {
-            animation: urgentPulse 2s infinite;
-        }
-
         .aid-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            border-left: 4px solid transparent;
         }
         
         .aid-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-
-        .section-header {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-header:after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60%;
-            height: 3px;
-            background: linear-gradient(to right, #FFCC00, #C8102E);
+            border-left-color: #FFCC00;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.08);
         }
 
         .lang-btn {
@@ -80,11 +63,6 @@
         .punchy {
             font-weight: 600;
             line-height: 1.3;
-        }
-
-        .impact-text {
-            font-size: 1.05rem;
-            line-height: 1.5;
         }
     </style>
 </head>
@@ -104,7 +82,7 @@
             <div class="flex items-center justify-between h-16">
                 <!-- Logo -->
                 <div class="flex items-center gap-x-3">
-                    <div class="w-10 h-10 bg-vz-yellow rounded-full flex items-center justify-center">
+                    <div class="w-10 h-10 bg-vz-yellow rounded-full flex items-center justify-center overflow-hidden border-2 border-vz-blue">
                         <span class="text-vz-blue font-black text-2xl">VE</span>
                     </div>
                     <div>
@@ -133,14 +111,17 @@
         </div>
     </nav>
 
+    <!-- Tricolor accent (Venezuela flag colors) -->
+    <div class="h-[3px] bg-gradient-to-r from-[#FFCC00] via-[#003087] to-[#C8102E]"></div>
+
     <!-- HERO -->
     <header class="hero-bg text-white">
         <div class="max-w-7xl mx-auto px-4 pt-12 pb-16">
             <div class="max-w-4xl">
-                <div class="inline-flex items-center gap-x-2 bg-white/10 backdrop-blur px-4 py-1.5 rounded-full mb-6">
-                    <div class="w-2 h-2 bg-vz-red rounded-full animate-pulse"></div>
-                    <span class="text-sm font-semibold tracking-[1.5px] en">JUNE 24, 2026 • DOUBLE EARTHQUAKE</span>
-                    <span class="text-sm font-semibold tracking-[1.5px] es hidden">24 DE JUNIO 2026 • DOBLE TERREMOTO</span>
+                <div class="inline-flex items-center gap-x-2 bg-white/10 px-4 py-1.5 rounded-full mb-6 border border-white/20">
+                    <div class="w-2 h-2 bg-vz-yellow rounded-full"></div>
+                    <span class="text-sm font-semibold tracking-[1.5px] en">JUNE 2026 • EARTHQUAKES</span>
+                    <span class="text-sm font-semibold tracking-[1.5px] es hidden">JUNIO 2026 • TERREMOTOS</span>
                 </div>
 
                 <h1 class="text-6xl md:text-7xl font-black tracking-tighter leading-none mb-4 en">
@@ -181,18 +162,6 @@
         </div>
     </header>
 
-    <!-- POSTER / FLYER -->
-    <div class="max-w-5xl mx-auto px-4 -mt-8 relative z-10">
-        <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100">
-            <div class="p-2 bg-gray-900 text-white text-center text-xs font-mono tracking-widest">COMMUNITY FLYER • ACTIVELY CIRCULATING IN VENEZUELA</div>
-            <img src="assets/venezuela-aid-poster.png" 
-                 alt="Venezuela earthquake relief community poster with collection points and Bizum" 
-                 class="w-full h-auto">
-        </div>
-        <p class="text-center text-sm text-gray-500 mt-3 en">This flyer is being shared across Venezuela right now. These local points are accepting donations today.</p>
-        <p class="text-center text-sm text-gray-500 mt-3 es hidden">Este volante se está compartiendo en Venezuela ahora mismo. Estos puntos locales aceptan donaciones hoy.</p>
-    </div>
-
     <!-- THANK YOU FROM VALERIA RIVAS -->
     <div id="valeria" class="max-w-5xl mx-auto px-4 pt-16">
         <div class="bg-white border-l-8 border-vz-red rounded-3xl p-8 md:p-10 shadow-sm">
@@ -211,14 +180,14 @@
                     
                     <div class="prose prose-lg text-gray-700 max-w-none en">
                         <p class="text-xl">I know the people behind these efforts personally. They are already buying supplies, collecting donations, and getting everything to families, children who lost their parents, and elderly with nothing left.</p>
-                        <p class="mt-3">Every single contribution — whether it’s money through Bizum, food you drop off, or a donation to one of the organizations below — reaches people who need it desperately right now.</p>
+                        <p class="mt-3">Every single contribution, whether it is money through Bizum, food you drop off, or a donation to one of the organizations below, reaches people who need it desperately right now.</p>
                         <p class="mt-3 font-semibold">Thank you for caring. Your help saves lives today.</p>
                     </div>
                     
                     <div class="prose prose-lg text-gray-700 max-w-none es hidden">
                         <p class="text-xl">Conozco personalmente a las personas detrás de estos esfuerzos. Ya están comprando suministros, recolectando donaciones y llevándolos a familias, niños que perdieron a sus padres y ancianos sin nada.</p>
-                        <p class="mt-3">Cada contribución — ya sea dinero por Bizum, comida que dejes o una donación a alguna de las organizaciones de abajo — llega a personas que lo necesitan desesperadamente ahora mismo.</p>
-                        <p class="mt-3 font-semibold">Gracias por importar. Tu ayuda salva vidas hoy.</p>
+                        <p class="mt-3">Cada contribución, ya sea dinero por Bizum, comida que dejes o una donación a alguna de las organizaciones de abajo, llega a personas que lo necesitan desesperadamente ahora mismo.</p>
+                        <p class="mt-3 font-semibold">Gracias por tu apoyo. Tu ayuda salva vidas hoy.</p>
                     </div>
                 </div>
             </div>
@@ -247,8 +216,8 @@
                 <div class="text-vz-red text-4xl mb-4"><i class="fas fa-hand-holding-heart"></i></div>
                 <h3 class="font-black text-2xl mb-2 en">Cash moves fastest</h3>
                 <h3 class="font-black text-2xl mb-2 es hidden">El dinero se mueve más rápido</h3>
-                <p class="text-gray-600 en">Money lets local teams buy exactly what is needed most in Venezuela right now — avoiding slow shipping and customs delays.</p>
-                <p class="text-gray-600 es hidden">El dinero permite a los equipos locales comprar exactamente lo que más se necesita en Venezuela ahora mismo — evitando demoras en envíos y aduanas.</p>
+                <p class="text-gray-600 en">Money lets local teams buy exactly what is needed most in Venezuela right now, avoiding slow shipping and customs delays.</p>
+                <p class="text-gray-600 es hidden">El dinero permite a los equipos locales comprar exactamente lo que más se necesita en Venezuela ahora mismo, evitando demoras en envíos y aduanas.</p>
             </div>
             <div class="bg-white p-7 rounded-3xl border border-gray-100">
                 <div class="text-vz-red text-4xl mb-4"><i class="fas fa-users"></i></div>
@@ -320,8 +289,8 @@
                     <i class="fas fa-boxes text-3xl text-emerald-600"></i>
                 </div>
                 <h3 class="font-black text-2xl mb-1">Total Transporter</h3>
-                <p class="text-gray-600 mb-1 en"><strong>Calle Ayala</strong> — They receive EVERYTHING you can donate.</p>
-                <p class="text-gray-600 mb-1 es hidden"><strong>Calle Ayala</strong> — Reciben TODO lo que puedas donar.</p>
+                <p class="text-gray-600 mb-1 en"><strong>Calle Ayala.</strong> They receive EVERYTHING you can donate.</p>
+                <p class="text-gray-600 mb-1 es hidden"><strong>Calle Ayala.</strong> Reciben TODO lo que puedas donar.</p>
                 <div class="mt-auto pt-4 border-t">
                     <p class="text-sm text-emerald-700 font-semibold flex items-center gap-x-1.5 mb-1">
                         <i class="fas fa-check-circle"></i> 
@@ -341,8 +310,8 @@
                     <i class="fas fa-map-marker-alt text-3xl text-emerald-600"></i>
                 </div>
                 <h3 class="font-black text-2xl mb-1">La Que Frao</h3>
-                <p class="text-gray-600 mb-1 en"><strong>Carreteria street</strong> — Official collection center.</p>
-                <p class="text-gray-600 mb-4 es hidden"><strong>Calle Carreteria</strong> — Centro oficial de recolección.</p>
+                <p class="text-gray-600 mb-1 en"><strong>Carretería street.</strong> Official collection center.</p>
+                <p class="text-gray-600 mb-4 es hidden"><strong>Calle Carretería.</strong> Centro oficial de recolección.</p>
                 
                 <div class="text-sm text-gray-600 mb-4">
                     <span class="en">Accepts: Clothing, medicines, non-perishable food, hygiene products for children, babies &amp; adults</span>
@@ -371,7 +340,7 @@
                 <p class="text-gray-700 mb-4 es hidden">Envía dinero para que se compren suministros inmediatamente en el terreno. Se publican los recibos para que veas exactamente dónde va cada euro.</p>
                 
                 <div class="mt-auto">
-                    <p class="text-xs text-vz-red font-bold">Trusted by Valeria Rivas — she knows the person buying supplies</p>
+                    <p class="text-xs text-vz-red font-bold">Trusted by Valeria Rivas. She knows the person buying supplies.</p>
                 </div>
             </div>
 
@@ -384,11 +353,11 @@
                     </div>
                     <i class="fas fa-globe text-3xl text-amber-600"></i>
                 </div>
-                <h3 class="font-black text-2xl mb-2">GoFundMe – Active Supply Buying</h3>
+                <h3 class="font-black text-2xl mb-2">GoFundMe - Active Supply Buying</h3>
                 <p class="text-gray-600 mb-4 en">A trusted contact (known personally by Valeria) is already purchasing and delivering needed items with the funds.</p>
                 <p class="text-gray-600 mb-4 es hidden">Una persona de confianza (conocida personalmente por Valeria) ya está comprando y entregando los artículos necesarios con los fondos.</p>
                 
-                <a href="https://gofund.me/cdebc8787" target="_blank" 
+                <a href="https://www.gofundme.com/f/emergency-relief-for-venezuela-earthquake-victims" target="_blank" 
                    class="mt-auto inline-flex items-center justify-center gap-x-2 bg-amber-500 hover:bg-amber-600 transition text-white font-bold py-3 px-6 rounded-2xl text-sm">
                     <span class="en">DONATE ON GOFUNDME</span>
                     <span class="es hidden">DONAR EN GOFUNDME</span>
@@ -403,8 +372,8 @@
                     <span class="px-3 py-1 text-xs font-bold bg-sky-100 text-sky-700 rounded-full es hidden">NIÑOS • HUÉRFANOS</span>
                 </div>
                 <h3 class="font-black text-2xl my-3">Hogar Bambi</h3>
-                <p class="text-gray-600 mb-4 en">Caring for children and teens who lost their parents in the earthquake. They accept food donations or money to buy exactly what the kids need.</p>
-                <p class="text-gray-600 mb-4 es hidden">Cuidando a niños y adolescentes que perdieron a sus padres en el terremoto. Aceptan donaciones de comida o dinero para comprar exactamente lo que los niños necesitan.</p>
+                <p class="text-gray-600 mb-4 en">Caring for children and teens who lost their parents in the earthquakes. They accept food donations or money to buy exactly what the kids need.</p>
+                <p class="text-gray-600 mb-4 es hidden">Cuidando a niños y adolescentes que perdieron a sus padres en los terremotos. Aceptan donaciones de comida o dinero para comprar exactamente lo que los niños necesitan.</p>
                 
                 <a href="https://www.instagram.com/hogarbambi" target="_blank" 
                    class="inline-flex items-center text-sky-600 hover:text-sky-700 font-semibold text-sm gap-x-1.5">
@@ -462,66 +431,66 @@
             <div class="aid-card bg-white border border-gray-200 rounded-3xl p-7">
                 <div class="flex justify-between items-start mb-3">
                     <div class="font-black text-xl">World Food Programme (WFP)</div>
-                    <i class="fas fa-globe text-2xl text-blue-600"></i>
+                    <i class="fas fa-globe text-2xl vz-blue"></i>
                 </div>
                 <p class="text-gray-600 text-sm mb-4 en">Actively mobilizing to deliver immediate food assistance, hot meals, and in-kind food kits to hundreds of thousands of people.</p>
                 <p class="text-gray-600 text-sm mb-4 es hidden">Movilizando activamente para entregar asistencia alimentaria inmediata, comidas calientes y kits de comida a cientos de miles de personas.</p>
-                <a href="https://wfpusa.org/" target="_blank" class="text-blue-600 hover:underline text-sm font-semibold flex items-center gap-x-1">Donate to WFP <i class="fas fa-arrow-right text-xs"></i></a>
+                <a href="https://wfpusa.org/" target="_blank" class="vz-blue hover:underline text-sm font-semibold flex items-center gap-x-1">Donate to WFP <i class="fas fa-arrow-right text-xs"></i></a>
             </div>
 
             <!-- CRS + Caritas -->
             <div class="aid-card bg-white border border-gray-200 rounded-3xl p-7">
                 <div class="flex justify-between items-start mb-3">
                     <div class="font-black text-xl">Catholic Relief Services + Caritas Venezuela</div>
-                    <i class="fas fa-globe text-2xl text-blue-600"></i>
+                    <i class="fas fa-globe text-2xl vz-blue"></i>
                 </div>
                 <p class="text-gray-600 text-sm mb-4 en">Working directly with local partners to deliver emergency food, water, shelter and medical care right now.</p>
                 <p class="text-gray-600 text-sm mb-4 es hidden">Trabajando directamente con socios locales para entregar comida de emergencia, agua, refugio y atención médica ahora mismo.</p>
-                <a href="https://www.crs.org/donate/venezuela-earthquake" target="_blank" class="text-blue-600 hover:underline text-sm font-semibold flex items-center gap-x-1">Donate via CRS <i class="fas fa-arrow-right text-xs"></i></a>
+                <a href="https://www.crs.org/donate/venezuela-earthquake" target="_blank" class="vz-blue hover:underline text-sm font-semibold flex items-center gap-x-1">Donate via CRS <i class="fas fa-arrow-right text-xs"></i></a>
             </div>
 
             <!-- UNICEF -->
             <div class="aid-card bg-white border border-gray-200 rounded-3xl p-7">
                 <div class="flex justify-between items-start mb-3">
                     <div class="font-black text-xl">UNICEF</div>
-                    <i class="fas fa-globe text-2xl text-blue-600"></i>
+                    <i class="fas fa-globe text-2xl vz-blue"></i>
                 </div>
                 <p class="text-gray-600 text-sm mb-4 en">Delivering medical supplies, nutrition support, safe water and protection for children affected by the earthquakes.</p>
                 <p class="text-gray-600 text-sm mb-4 es hidden">Entregando suministros médicos, apoyo nutricional, agua segura y protección para niños afectados por los terremotos.</p>
-                <a href="https://www.unicefusa.org/" target="_blank" class="text-blue-600 hover:underline text-sm font-semibold flex items-center gap-x-1">Support UNICEF <i class="fas fa-arrow-right text-xs"></i></a>
+                <a href="https://www.unicefusa.org/" target="_blank" class="vz-blue hover:underline text-sm font-semibold flex items-center gap-x-1">Support UNICEF <i class="fas fa-arrow-right text-xs"></i></a>
             </div>
 
             <!-- Direct Relief -->
             <div class="aid-card bg-white border border-gray-200 rounded-3xl p-7">
                 <div class="flex justify-between items-start mb-3">
                     <div class="font-black text-xl">Direct Relief</div>
-                    <i class="fas fa-globe text-2xl text-blue-600"></i>
+                    <i class="fas fa-globe text-2xl vz-blue"></i>
                 </div>
                 <p class="text-gray-600 text-sm mb-4 en">Providing critical medicines and medical supplies to health providers responding to the disaster.</p>
                 <p class="text-gray-600 text-sm mb-4 es hidden">Proporcionando medicinas críticas y suministros médicos a los proveedores de salud que responden al desastre.</p>
-                <a href="https://www.directrelief.org/" target="_blank" class="text-blue-600 hover:underline text-sm font-semibold flex items-center gap-x-1">Donate medical aid <i class="fas fa-arrow-right text-xs"></i></a>
+                <a href="https://www.directrelief.org/" target="_blank" class="vz-blue hover:underline text-sm font-semibold flex items-center gap-x-1">Donate medical aid <i class="fas fa-arrow-right text-xs"></i></a>
             </div>
 
             <!-- World Central Kitchen -->
             <div class="aid-card bg-white border border-gray-200 rounded-3xl p-7">
                 <div class="flex justify-between items-start mb-3">
                     <div class="font-black text-xl">World Central Kitchen</div>
-                    <i class="fas fa-globe text-2xl text-blue-600"></i>
+                    <i class="fas fa-globe text-2xl vz-blue"></i>
                 </div>
                 <p class="text-gray-600 text-sm mb-4 en">On the ground in Caracas serving fresh hot meals to displaced families and first responders.</p>
                 <p class="text-gray-600 text-sm mb-4 es hidden">En el terreno en Caracas sirviendo comidas calientes frescas a familias desplazadas y socorristas.</p>
-                <a href="https://wck.org/" target="_blank" class="text-blue-600 hover:underline text-sm font-semibold flex items-center gap-x-1">Support WCK <i class="fas fa-arrow-right text-xs"></i></a>
+                <a href="https://wck.org/" target="_blank" class="vz-blue hover:underline text-sm font-semibold flex items-center gap-x-1">Support WCK <i class="fas fa-arrow-right text-xs"></i></a>
             </div>
 
             <!-- IRC -->
             <div class="aid-card bg-white border border-gray-200 rounded-3xl p-7">
                 <div class="flex justify-between items-start mb-3">
                     <div class="font-black text-xl">International Rescue Committee (IRC)</div>
-                    <i class="fas fa-globe text-2xl text-blue-600"></i>
+                    <i class="fas fa-globe text-2xl vz-blue"></i>
                 </div>
                 <p class="text-gray-600 text-sm mb-4 en">Delivering urgent health, nutrition, food security and clean water support where it is needed most.</p>
                 <p class="text-gray-600 text-sm mb-4 es hidden">Entregando apoyo urgente de salud, nutrición, seguridad alimentaria y agua limpia donde más se necesita.</p>
-                <a href="https://www.rescue.org/" target="_blank" class="text-blue-600 hover:underline text-sm font-semibold flex items-center gap-x-1">Help via IRC <i class="fas fa-arrow-right text-xs"></i></a>
+                <a href="https://www.rescue.org/" target="_blank" class="vz-blue hover:underline text-sm font-semibold flex items-center gap-x-1">Help via IRC <i class="fas fa-arrow-right text-xs"></i></a>
             </div>
         </div>
     </div>
@@ -535,20 +504,16 @@
                 <span class="es hidden">Mantente seguro al donar</span>
             </h3>
             
-            <div class="grid md:grid-cols-2 gap-x-10 text-sm">
-                <div class="space-y-3 text-white/90">
-                    <p class="en">• Only use the official links above. Never click random links from social media.</p>
-                    <p class="en">• For in-kind donations inside Venezuela, use the collection points listed in the flyer.</p>
-                    <p class="en">• Money sent via Bizum or verified GoFundMe reaches the ground fastest.</p>
-                </div>
-                <div class="space-y-3 text-white/90">
-                    <p class="es hidden">• Solo usa los enlaces oficiales de arriba. Nunca hagas clic en enlaces aleatorios de redes sociales.</p>
-                    <p class="es hidden">• Para donaciones en especie dentro de Venezuela, usa los puntos de recolección del volante.</p>
-                    <p class="es hidden">• El dinero enviado por Bizum o GoFundMe verificado llega al terreno más rápido.</p>
-                    
-                    <p class="text-xs text-white/60 pt-3 border-t border-white/20 en">This is a community resource. We are not affiliated with any organization listed. Always verify directly before donating. Last updated June 27, 2026.</p>
-                    <p class="text-xs text-white/60 pt-3 border-t border-white/20 es hidden">Este es un recurso comunitario. No estamos afiliados a ninguna organización listada. Siempre verifica directamente antes de donar. Actualizado 27 junio 2026.</p>
-                </div>
+            <div class="space-y-3 text-sm text-white/90">
+                <p class="en">• Only use the official links above. Never click random links from social media.</p>
+                <p class="en">• For in-kind donations inside Venezuela, use the collection points listed above.</p>
+                <p class="en">• Money sent via Bizum or verified GoFundMe reaches the ground fastest.</p>
+                <p class="es hidden">• Solo usa los enlaces oficiales de arriba. Nunca hagas clic en enlaces aleatorios de redes sociales.</p>
+                <p class="es hidden">• Para donaciones en especie dentro de Venezuela, usa los puntos de recolección listados arriba.</p>
+                <p class="es hidden">• El dinero enviado por Bizum o GoFundMe verificado llega al terreno más rápido.</p>
+                
+                <p class="text-xs text-white/60 pt-3 border-t border-white/20 en">This is a community resource. We are not affiliated with any organization listed. Always verify directly before donating. Last updated June 27, 2026.</p>
+                <p class="text-xs text-white/60 pt-3 border-t border-white/20 es hidden">Este es un recurso comunitario. No estamos afiliados a ninguna organización listada. Siempre verifica directamente antes de donar. Actualizado 27 junio 2026.</p>
             </div>
         </div>
     </div>
@@ -559,8 +524,8 @@
             <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-vz-blue mb-3 en">Thank you for helping Venezuela</h2>
             <h2 class="text-4xl md:text-5xl font-black tracking-tighter text-vz-blue mb-3 es hidden">Gracias por ayudar a Venezuela</h2>
             
-            <p class="text-xl text-vz-blue/90 mb-8 en">Every donation — big or small — brings food, medicine, and hope to someone who needs it today.</p>
-            <p class="text-xl text-vz-blue/90 mb-8 es hidden">Cada donación — grande o pequeña — lleva comida, medicinas y esperanza a alguien que lo necesita hoy.</p>
+            <p class="text-xl text-vz-blue/90 mb-8 en">Every donation, big or small, brings food, medicine, and hope to someone who needs it today.</p>
+            <p class="text-xl text-vz-blue/90 mb-8 es hidden">Cada donación, grande o pequeña, lleva comida, medicinas y esperanza a alguien que lo necesita hoy.</p>
             
             <a href="#directory" 
                class="inline-block bg-vz-blue hover:bg-blue-900 transition text-white font-black text-xl px-14 py-5 rounded-3xl">
@@ -644,27 +609,6 @@
                     }
                 });
             });
-            
-            // Easter egg: Press "u" for urgent mode (adds more red)
-            let urgentMode = false;
-            document.addEventListener('keypress', function(e) {
-                if (e.key.toLowerCase() === 'u') {
-                    urgentMode = !urgentMode;
-                    if (urgentMode) {
-                        document.body.style.borderTop = '6px solid #C8102E';
-                        document.querySelectorAll('.aid-card').forEach(card => {
-                            card.style.borderColor = '#C8102E';
-                        });
-                    } else {
-                        document.body.style.borderTop = '';
-                        document.querySelectorAll('.aid-card').forEach(card => {
-                            card.style.borderColor = '';
-                        });
-                    }
-                }
-            });
-            
-            console.log('%c[Venezuela Aid Hub] Site ready. Bilingual + mobile optimized.', 'color:#666');
         }
         
         window.onload = init;
